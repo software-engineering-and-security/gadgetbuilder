@@ -51,6 +51,7 @@ public @interface Authors {
     String PYN3RD = "pyn3rd";
     String JWU = "junjieWu";
     String JARIJ = "jarij";
+    String YihengZhang = "yiheng_zhang";
 
     public static class Utils {
         public static String[] getAuthors(AnnotatedElement annotated) {

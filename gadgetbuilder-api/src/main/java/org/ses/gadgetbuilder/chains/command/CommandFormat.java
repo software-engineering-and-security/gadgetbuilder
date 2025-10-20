@@ -24,6 +24,7 @@ public interface CommandFormat {
             case Impact.SetProperty:
                 return new SetPropertyCommandFormat();
             case Impact.DNSLookup:
+                return new URLDNSCommandFormat();
             case Impact.SSRF:
                 return new URLCommandFormat();
             default:
