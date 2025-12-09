@@ -162,11 +162,18 @@ Credit where credit is due: we insist on referencing this work in combination wi
 
 ### GadgetBuilder Citation
 
+Open access PDF: [nordsec2025-gadgetBuilder.pdf](https://www.abartel.net/static/p/nordsec2025-gadgetBuilder.pdf)
+
 ```
-TODO
+@inproceedings{kreyssig2025gadgetBuilder,
+  title = {GadgetBuilder: An Overhaul of the Greatest Java Deserialization Exploitation Tool},
+  author = {Kreyssig, Bruno and Houy, Sabine and Zhang, Hantang and Riom, Timothée and Bartel, Alexandre},
+  booktitle = {{30th Nordic Conference on Secure IT Systems (NordSec'25)}},
+  year = {2025},
+  doi = {}
+}
 ```
 
-> TODO
 
 ### Further Sources and Contributions
 
