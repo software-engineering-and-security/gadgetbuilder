@@ -16,6 +16,7 @@ import org.ses.gadgetbuilder.impl.adapters.getters.TemplatesImplMethodInvokeAdap
 import org.ses.gadgetbuilder.impl.adapters.initializers.TemplatesImplInitializeAdapter;
 import org.ses.gadgetbuilder.impl.trampolines.AnnotationInvocationHandlerMapEntrySet;
 import org.ses.gadgetbuilder.impl.trampolines.AnnotationInvocationHandlerMapGet;
+import org.ses.gadgetbuilder.impl.trampolines.CompositeInvocationHandlerMapGet;
 import org.ses.gadgetbuilder.impl.trampolines.compare.PriorityQueueCompare;
 import org.ses.gadgetbuilder.impl.trampolines.equals.HashtableEquals;
 import org.ses.gadgetbuilder.impl.trampolines.hashcode.HashCodeHashMapTrampoline;
@@ -29,7 +30,7 @@ public class ConfigUtil {
     public static String DefaultEqualsTrampoline = HashtableEquals.class.getSimpleName();
     public static String DefaultToStringTrampoline = UIDefaultsToStringTrampoline.class.getSimpleName();
     public static String DefaultMapEntrySetTrampoline = AnnotationInvocationHandlerMapEntrySet.class.getSimpleName();
-    public static String DefaultMapGetTrampoline = AnnotationInvocationHandlerMapGet.class.getSimpleName();
+    public static String DefaultMapGetTrampoline = CompositeInvocationHandlerMapGet.class.getSimpleName();
     public static String DefaultCompareTrampoline = PriorityQueueCompare.class.getSimpleName();
 
     public static String DefaultMethodInvocationAdapter = TemplatesImplMethodInvokeAdapter.class.getSimpleName();
