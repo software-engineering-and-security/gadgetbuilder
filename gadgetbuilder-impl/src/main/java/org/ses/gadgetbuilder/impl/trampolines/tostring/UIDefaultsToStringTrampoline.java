@@ -5,9 +5,7 @@ import org.ses.gadgetbuilder.chains.trampolines.noparam.ToStringTrampoline;
 import org.ses.gadgetbuilder.impl.trampolines.equals.ConcurrentHashMapEquals;
 import org.ses.gadgetbuilder.util.Reflections;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -27,7 +25,7 @@ public class UIDefaultsToStringTrampoline implements ToStringTrampoline {
 
         Reflections.setFieldValue(textAndMnemonicHashMap, "loadFactor", 0.75f);
 
-        ConcurrentHashMap map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Object, Object> map = new ConcurrentHashMap<>();
         map.put(payload, "FooBar");
 
         ConcurrentHashMapEquals equalsTrampoline = new ConcurrentHashMapEquals();
