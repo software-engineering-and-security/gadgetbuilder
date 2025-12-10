@@ -17,8 +17,8 @@ public class HashtableEquals implements EqualsTrampoline {
         Hashtable map1 = new Hashtable(); // Hashtable
         Hashtable map2 = new Hashtable();
         map1.put("yy",param);
-        map1.put("zZ",param);
-        map2.put("yy",param);
+        map1.put("zZ",payload);
+        map2.put("yy",payload);
         map2.put("zZ",param);
 
         // Hashtable.Entry
