@@ -163,6 +163,7 @@ Credit where credit is due: we insist on referencing this work in combination wi
 ### GadgetBuilder Citation
 
 Open access PDF: [nordsec2025-gadgetBuilder.pdf](https://www.abartel.net/static/p/nordsec2025-gadgetBuilder.pdf)
+
 To keep things clean, we removed the evaluation data from this repository. If you need to access it, it is still available in the anonymous artifact source zip on [FigShare](https://figshare.com/s/ea18b680a4790356d304).
 
 ```
