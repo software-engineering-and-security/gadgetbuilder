@@ -61,12 +61,6 @@ Make sure you are using [JDK 8](https://www.oracle.com/java/technologies/javase/
 # set JAVA_HOME env variable if necessary. Points to the home dir, not the java binary.
 export JAVA_HOME=/path/to/JDK_8
 mvn clean package
-
-# Build target: ./gadgetbuilder-client/target/<gadgetbuilder-version>-jar-with-dependencies.jar
-
-# Don't worry if the build for the testapp fails - it was there for experimentation purposes. You can build it separately
-export JAVA_HOME=/path/to/JDK_9
-mvn clean package --projects testapp
 ```
 
 ## Contributing
