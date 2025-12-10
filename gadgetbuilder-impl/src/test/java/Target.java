@@ -1,9 +1,13 @@
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Target implements Serializable, Map, Comparator {
 
     public static boolean FLAG = false;
+
+    public static BigInteger compareInt1 = new BigInteger("1");
+    public static BigInteger compareInt2 = new BigInteger("2");
 
 
     @Override
@@ -20,7 +24,9 @@ public class Target implements Serializable, Map, Comparator {
 
     @Override
     public int compare(Object o1, Object o2) {
-        Target.FLAG = true;
+        if (compareInt1.equals(o1)) {
+            Target.FLAG = true;
+        }
         return 0;
     }
 

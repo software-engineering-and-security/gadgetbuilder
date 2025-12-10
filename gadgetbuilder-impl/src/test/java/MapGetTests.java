@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.ses.gadgetbuilder.impl.trampolines.AnnotationInvocationHandlerMapGet;
 import org.ses.gadgetbuilder.impl.trampolines.CompositeInvocationHandlerMapGet;
@@ -11,8 +11,8 @@ public class MapGetTests {
 
     public static Target target;
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         target = new Target();
         Target.FLAG = false;
     }
@@ -40,7 +40,7 @@ public class MapGetTests {
 
         try {
             Serialization.deserialize(payload);
-        } catch (Exception ignored) {}
+        } catch (Throwable ignored) {}
 
         Assertions.assertTrue(Target.FLAG);
     }

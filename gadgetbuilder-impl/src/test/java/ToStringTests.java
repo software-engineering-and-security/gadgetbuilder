@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.ses.gadgetbuilder.chains.trampolines.noparam.ToStringTrampoline;
 import org.ses.gadgetbuilder.impl.trampolines.tostring.BadAttributeValueToStringImpl;
@@ -12,8 +12,8 @@ public class ToStringTests {
 
     public static Target target;
 
-    @BeforeAll
-    public static void setup() {
+    @BeforeEach
+    public void setup() {
         target = new Target();
         Target.FLAG = false;
     }
