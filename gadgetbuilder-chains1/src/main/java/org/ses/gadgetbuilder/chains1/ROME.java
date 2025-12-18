@@ -28,7 +28,7 @@ public class ROME extends MethodInvokeGadgetChain<HashCodeTrampoline, GetterMeth
         Class targetInterface = this.methodInvokeAdapter.getTargetInterface();
 
         if (targetInterface == null) {
-            throw new AdapterMismatchException("Spring gadget chain requires a sink method adapter class that has interfaces " +
+            throw new AdapterMismatchException("ROME gadget chain requires a sink method adapter class that has interfaces " +
                     "corresponding to the to be invoked methods. This is not the case for " + this.methodInvokeAdapter.getClass().getSimpleName());
         }
 
