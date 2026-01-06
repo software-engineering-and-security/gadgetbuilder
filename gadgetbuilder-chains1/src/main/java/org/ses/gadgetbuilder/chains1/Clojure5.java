@@ -53,4 +53,14 @@ public class Clojure5 extends GadgetChain<HashCodeTrampoline> {
     protected void postProcessPayload() throws Exception {
     }
 
+    @Override
+    protected String getStackTrace() {
+        return "clojure.lang.LazySeq.hashCode\n" +
+                "clojure.lang.LazySeq.seq\n" +
+                "clojure.lang.LazySeq.realize\n" +
+                "clojure.lang.LazySeq.force\n" +
+                "clojure.lang.IFn.invoke\n" +
+                "clojure.core$partial$fn__5929.invoke\n" +
+                "clojure.java.process$start.invoke";
+    }
 }

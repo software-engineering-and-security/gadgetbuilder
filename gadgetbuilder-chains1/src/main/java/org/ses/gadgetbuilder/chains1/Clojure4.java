@@ -64,6 +64,13 @@ public class Clojure4 extends GadgetChain<HashCodeTrampoline> {
     protected void postProcessPayload() throws Exception {
     }
 
-
-
+    @Override
+    protected String getStackTrace() {
+        return "clojure.lang.PersistentQueue.hashCode\n" +
+                "clojure.lang.PersistentQueue$Seq.first\n" +
+                "clojure.lang.Iterate.first\n" +
+                "clojure.lang.IFn.invoke\n" +
+                "clojure.core$partial$fn__5929.invoke\n" +
+                "clojure.java.process$start.invoke";
+    }
 }

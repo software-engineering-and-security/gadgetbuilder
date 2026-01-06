@@ -1,4 +1,4 @@
-package org.ses.gadgetbuilder.impl.trampolines;
+package org.ses.gadgetbuilder.impl.trampolines.mapentryset;
 
 import org.ses.gadgetbuilder.chains.trampolines.noparam.MapEntrySetTrampoline;
 import org.ses.gadgetbuilder.util.Reflections;

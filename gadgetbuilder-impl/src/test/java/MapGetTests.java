@@ -1,8 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.ses.gadgetbuilder.impl.trampolines.AnnotationInvocationHandlerMapGet;
-import org.ses.gadgetbuilder.impl.trampolines.CompositeInvocationHandlerMapGet;
+import org.ses.gadgetbuilder.impl.trampolines.mapget.AbstractMapGet;
+import org.ses.gadgetbuilder.impl.trampolines.mapget.AnnotationInvocationHandlerMapGet;
+import org.ses.gadgetbuilder.impl.trampolines.mapget.CompositeInvocationHandlerMapGet;
 import org.ses.gadgetbuilder.util.Serialization;
 
 import java.io.Serializable;
@@ -36,6 +37,19 @@ public class MapGetTests {
     public void test_composite_invocation_handler_reaches_MapGet() {
 
         CompositeInvocationHandlerMapGet mapGet = new CompositeInvocationHandlerMapGet();
+        byte[] payload = Serialization.serialize((Serializable) mapGet.wrapPayload(target, "bar"));
+
+        try {
+            Serialization.deserialize(payload);
+        } catch (Throwable ignored) {}
+
+        Assertions.assertTrue(Target.FLAG);
+    }
+
+    @Test
+    public void test_abstract_map_reaches_MapGet() throws Exception {
+
+        AbstractMapGet mapGet = new AbstractMapGet();
         byte[] payload = Serialization.serialize((Serializable) mapGet.wrapPayload(target, "bar"));
 
         try {

@@ -58,6 +58,17 @@ public class BeanShell1 extends GadgetChain<CompareTrampoline> {
     }
 
     @Override
+    protected String getStackTrace() {
+        return "Comparator.compare()\n" +
+                "XThis$Handler.invoke()\n" +
+                "XThis$Handler.invokeImpl()\n" +
+                "This.invokeMethod()\n" +
+                "BshMethod.invoke()\n" +
+                "... \n" +
+                "ProcessBuilder.start()";
+    }
+
+    @Override
     protected String getCommandFormat() {
         return "<shell-command>";
     }

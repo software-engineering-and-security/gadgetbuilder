@@ -1,4 +1,4 @@
-package org.ses.gadgetbuilder.impl.trampolines;
+package org.ses.gadgetbuilder.impl.trampolines.mapget;
 
 import org.ses.gadgetbuilder.annotations.Dependencies;
 import org.ses.gadgetbuilder.chains.trampolines.singleparam.MapGetTrampoline;

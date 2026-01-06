@@ -46,4 +46,15 @@ public class CommonsCollections8 extends MethodInvokeGadgetChain<NoTrampoline, M
     protected void postProcessPayload() throws Exception {
 
     }
+
+    @Override
+    protected String getStackTrace() {
+        return "org.apache.commons.collections4.bag.TreeBag.readObject\n" +
+                "org.apache.commons.collections4.bag.AbstractMapBag.doReadObject\n" +
+                "org.apache.commons.collections4.bag.TreeBag.put\n" +
+                "org.apache.commons.collections4.bag.TreeBag.compare\n" +
+                "org.apache.commons.collections4.comparators.TransformingComparator.compare\n" +
+                "org.apache.commons.collections4.functors.InvokerTransformer.transform\n" +
+                "java.lang.reflect.Method.invoke";
+    }
 }
