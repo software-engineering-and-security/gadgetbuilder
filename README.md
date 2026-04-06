@@ -169,7 +169,7 @@ To keep things clean, we removed the evaluation data from this repository. If yo
   publisher="Springer Nature Switzerland",
   address="Cham",
   pages="184--203",
-  isbn="978-3-032-14782-0"
+  isbn="978-3-032-14782-0",
   doi = {10.1007/978-3-032-14782-0_11}
 }
 ```
