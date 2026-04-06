@@ -164,9 +164,13 @@ To keep things clean, we removed the evaluation data from this repository. If yo
 @inproceedings{kreyssig2025gadgetBuilder,
   title = {GadgetBuilder: An Overhaul of the Greatest Java Deserialization Exploitation Tool},
   author = {Kreyssig, Bruno and Houy, Sabine and Zhang, Hantang and Riom, Timothée and Bartel, Alexandre},
-  booktitle = {{30th Nordic Conference on Secure IT Systems (NordSec'25)}},
-  year = {2025},
-  doi = {}
+  booktitle="Secure IT Systems",
+  year="2026",
+  publisher="Springer Nature Switzerland",
+  address="Cham",
+  pages="184--203",
+  isbn="978-3-032-14782-0"
+  doi = {10.1007/978-3-032-14782-0_11}
 }
 ```
 
