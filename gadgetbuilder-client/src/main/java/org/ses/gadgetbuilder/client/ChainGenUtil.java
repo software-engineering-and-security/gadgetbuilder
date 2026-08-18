@@ -47,8 +47,6 @@ public class ChainGenUtil {
         if (!dir.exists()) dir.mkdir();
 
 
-
-
         int payloadCnt = 0;
 
         for (GadgetChain chain : generateAllGadgetChains()) {
