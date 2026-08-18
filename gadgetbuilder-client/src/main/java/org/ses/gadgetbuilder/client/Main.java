@@ -53,7 +53,6 @@ public class Main {
         }
         if (commandArgs.hasOption("l")) {
 
-            // TODO: list all available gadget chains, trampolines, and adapters
             System.out.println(GadgetBuilderFactory.getChainImplementations().size() + " Gadget Chains available.");
             System.out.println("To get usage information for a specific chain: java -jar gadgetbuilder.jar -g <chain> -h");
             System.out.println("-----------------");
